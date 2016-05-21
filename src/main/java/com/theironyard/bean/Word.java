@@ -1,7 +1,7 @@
 package com.theironyard.bean;
 
 
-public class Word {
+public class Word implements Comparable {
 
     private String word;
     private int x1;
@@ -55,5 +55,11 @@ public class Word {
 
     public void setY2(int y2) {
         this.y2 = y2;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Word word = (Word)o;
+        return getWord().compareTo(word.getWord());
     }
 }

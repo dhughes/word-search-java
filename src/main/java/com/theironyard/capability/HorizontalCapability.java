@@ -13,12 +13,10 @@ import java.util.Random;
 public class HorizontalCapability implements Capability {
 
     private WordGenerator wordGenerator;
-    private Random random = new Random();
 
     public HorizontalCapability(WordGenerator wordGenerator) {
         this.wordGenerator = wordGenerator;
     }
-
 
     public String getName() {
         return "Horizontal";
@@ -33,7 +31,7 @@ public class HorizontalCapability implements Capability {
     }
 
 
-    public void addWord(Puzzle puzzle, Configuration configuration) throws NoMatchingWordsFoundException {
+    public void addWord(Puzzle puzzle, Configuration configuration, Random random) throws NoMatchingWordsFoundException {
         // decided on a word length
         int wordLength = random.nextInt( (configuration.getMaxLength() - configuration.getMinLength())+1 ) + configuration.getMinLength();
 
@@ -57,7 +55,7 @@ public class HorizontalCapability implements Capability {
         }
 
         // find a word matching this pattern
-        String textWord = wordGenerator.findWord(wordLength, patterns);
+        String textWord = wordGenerator.findWord(wordLength, patterns, random);
 
         // create a Word object
         Word word = new Word(textWord, x1, y1, x2-1, y2);

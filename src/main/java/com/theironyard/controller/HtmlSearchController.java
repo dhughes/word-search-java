@@ -56,7 +56,7 @@ public class HtmlSearchController {
         // create a puzzle
         Puzzle puzzle;
         try {
-            model.addAttribute("puzzle", new Puzzle(configuration, wordGenerator));
+            model.addAttribute("puzzle", new Puzzle(configuration, wordGenerator, capabilityService.getCapabilities(configuration.getCapabilities())));
         } catch (CouldNotGeneratePuzzleException e) {
             model.addAttribute("configuration", configuration);
             model.addAttribute("capabilities", capabilityService.getAllCapabilities());

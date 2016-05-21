@@ -16,7 +16,6 @@ import java.util.Random;
 public class AngleDownCapability implements Capability {
 
     private WordGenerator wordGenerator;
-    private Random random = new Random();
 
     public AngleDownCapability(WordGenerator wordGenerator) {
         this.wordGenerator = wordGenerator;
@@ -34,7 +33,7 @@ public class AngleDownCapability implements Capability {
         return getClass().getName().replaceAll("\\.", "");
     }
 
-    public void addWord(Puzzle puzzle, Configuration configuration) throws NoMatchingWordsFoundException {
+    public void addWord(Puzzle puzzle, Configuration configuration, Random random) throws NoMatchingWordsFoundException {
         // decided on a word length
         int wordLength = random.nextInt( (configuration.getMaxLength() - configuration.getMinLength())+1 ) + configuration.getMinLength();
 
@@ -58,7 +57,11 @@ public class AngleDownCapability implements Capability {
         }
 
         // find a word matching this pattern
-        String textWord = wordGenerator.findWord(wordLength, patterns);
+        String textWord = null;
+        //while(textWord == null) {
+            textWord = wordGenerator.findWord(wordLength, patterns, random);
+          //  if(puzzle.containsWord(textWord)) textWord = null;
+        //}
 
         // create a Word object
         Word word = new Word(textWord, x1, y1, x2-1, y2-1);

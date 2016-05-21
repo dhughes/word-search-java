@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 public class WordGenerator {
 
     private final Dictionary dictionary;
-    private final Random random = new Random();
 
     @Autowired
     public WordGenerator(Dictionary dictionary) {
@@ -23,7 +22,7 @@ public class WordGenerator {
 
     }
 
-    public String findWord(int length, ArrayList<Pattern> patterns) throws NoMatchingWordsFoundException {
+    public String findWord(int length, ArrayList<Pattern> patterns, Random random) throws NoMatchingWordsFoundException {
         List<String> words = dictionary.getDictionary();
 
         List<String> matchingWords = words.stream()

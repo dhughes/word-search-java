@@ -7,24 +7,22 @@ import com.theironyard.capability.CapabilityService;
 import com.theironyard.word.WordGenerator;
 import com.theironyard.exception.CouldNotGeneratePuzzleException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class Puzzle {
 
     private String[][] puzzle;
-    private ArrayList<Word> words = new ArrayList<>();
+    private TreeSet<Word> words = new TreeSet<>();
     private Configuration configuration;
     private List<Capability> capabilities;
     private Random random;
 
-    public Puzzle(Configuration configuration, WordGenerator wordGenerator) throws CouldNotGeneratePuzzleException {
+    public Puzzle(Configuration configuration, WordGenerator wordGenerator, List<Capability> capabilities) throws CouldNotGeneratePuzzleException {
         this.puzzle = new String[configuration.getHeight()][configuration.getWidth()];
         this.configuration = configuration;
-        this.capabilities = new CapabilityService(wordGenerator).getCapabilities(configuration.getCapabilities());
         this.random = new Random(this.configuration.getSeed());
+        this.capabilities = capabilities;
 
         generatePuzzle();
     }
@@ -37,9 +35,10 @@ public class Puzzle {
             // pick a random capability and use it to add a word
             try{
                 iterations++;
-                getRandomCapability().addWord(this, configuration);
+                getRandomCapability().addWord(this, configuration, random);
             } catch (Exception e){
                 // do nothing
+                // e.printStackTrace();
             }
 
             if(System.currentTimeMillis() - startTick > 10000) {
@@ -58,7 +57,8 @@ public class Puzzle {
     }
 
     private Capability getRandomCapability(){
-        return capabilities.get(random.nextInt(capabilities.size()));
+        Capability capability = capabilities.get(random.nextInt(capabilities.size()));
+        return capability;
     }
 
     public String[][] getPuzzle() {
@@ -69,11 +69,11 @@ public class Puzzle {
         this.puzzle = puzzle;
     }
 
-    public ArrayList<Word> getWords() {
+    public TreeSet<Word> getWords() {
         return words;
     }
 
-    public void setWords(ArrayList<Word> words) {
+    public void setWords(TreeSet<Word> words) {
         this.words = words;
     }
 
@@ -90,4 +90,11 @@ public class Puzzle {
         return stringBuilder.toString();
     }
 
+    public boolean containsWord(String textWord) {
+        for(Word word : words){
+            if(word.getWord().equals(textWord)) return true;
+        }
+
+        return false;
+    }
 }

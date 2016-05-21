@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by doug on 5/19/16.
@@ -28,7 +29,11 @@ public class RestSearchController {
 
     @RequestMapping(path = "/puzzle", method = RequestMethod.POST, consumes = "application/json")
     public Puzzle puzzle(@RequestBody Configuration configuration) throws CouldNotGeneratePuzzleException {
-        Puzzle puzzle = new Puzzle(configuration, wordGenerator);
+
+        if(configuration.getSeed() == null){
+            configuration.setSeed(new Random().nextLong());
+        }
+        Puzzle puzzle = new Puzzle(configuration, wordGenerator, capabilityService.getCapabilities(configuration.getCapabilities()));
 
         //System.out.println(puzzle);
         return puzzle;
