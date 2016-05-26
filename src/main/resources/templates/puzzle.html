@@ -15,7 +15,7 @@
 <h1>Hidden Words:</h1>
 <ol>
     <li th:each="word: ${puzzle.words}">
-        <span th:text="${word.word}">word</span>
+        <span><a th:text="${word.word}" th:href="${'http://www.dictionary.com/browse/' + word.word}">word</a></span>
     </li>
 </ol>
 

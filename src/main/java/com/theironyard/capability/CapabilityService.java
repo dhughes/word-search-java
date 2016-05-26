@@ -22,7 +22,10 @@ public class CapabilityService {
                 new HorizontalCapability(wordGenerator),
                 new VerticalCapability(wordGenerator),
                 new AngleDownCapability(wordGenerator),
-                new AngleUpCapability(wordGenerator)
+                new AngleUpCapability(wordGenerator),
+                new HorizontalBackwardsCapability(wordGenerator),
+                new AngleBackwardsUpCapability(wordGenerator),
+                new AngleBackwardsDownCapability(wordGenerator)
         };
     }
 

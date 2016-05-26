@@ -39,6 +39,7 @@ public class Puzzle {
             } catch (Exception e){
                 // do nothing
                 // e.printStackTrace();
+                //int x = 1;
             }
 
             if(System.currentTimeMillis() - startTick > 10000) {
