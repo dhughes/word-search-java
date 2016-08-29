@@ -3,6 +3,7 @@ package com.theironyard.capability;
 import com.theironyard.word.WordGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by doug on 5/19/16.
  */
-@Component
+@Service
 public class CapabilityService {
 
     private final Capability[] capabilities;

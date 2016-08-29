@@ -4,6 +4,7 @@ import com.sun.istack.internal.Nullable;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.ScriptAssert;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -47,6 +48,8 @@ public class Configuration {
     @NotNull
     @NotEmpty(message = "At least one capability must be selected.")
     private ArrayList<String> capabilities = new ArrayList<>();
+
+    private String sup;
 
     private Long seed = null;
 
@@ -116,5 +119,13 @@ public class Configuration {
 
     public void setSeed(Long seed) {
         this.seed = seed;
+    }
+
+    public String getSup() {
+        return sup;
+    }
+
+    public void setSup(String sup) {
+        this.sup = sup;
     }
 }

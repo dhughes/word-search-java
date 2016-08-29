@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <resourceExtensions />
     <wildcardResourcePatterns>
+      <entry name="!dev-resources:*" />
+      <entry name="!resources:*" />
       <entry name="!?*.java" />
       <entry name="!?*.form" />
       <entry name="!?*.class" />
@@ -21,6 +23,8 @@
     <bytecodeTargetLevel>
       <module name="WordSearch_main" target="1.8" />
       <module name="WordSearch_test" target="1.8" />
+      <module name="WordSearchJava_main" target="1.8" />
+      <module name="WordSearchJava_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

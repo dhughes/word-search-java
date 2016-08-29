@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearch.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearch_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearch_main.iml" group="WordSearch" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearch_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearch_test.iml" group="WordSearch" />
+      <module fileurl="file://$PROJECT_DIR$/../WordSearchAngular/WordSearchAngular.iml" filepath="$PROJECT_DIR$/../WordSearchAngular/WordSearchAngular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearchJava.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearchJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearchJava_main.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearchJava_main.iml" group="WordSearchJava" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WordSearchJava_test.iml" filepath="$PROJECT_DIR$/.idea/modules/WordSearchJava_test.iml" group="WordSearchJava" />
+      <module fileurl="file://$PROJECT_DIR$/../word-search-clojure/word-search.iml" filepath="$PROJECT_DIR$/../word-search-clojure/word-search.iml" />
     </modules>
   </component>
 </project>

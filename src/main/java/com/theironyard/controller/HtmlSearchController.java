@@ -46,9 +46,9 @@ public class HtmlSearchController {
     }
 
     @RequestMapping(path = "/puzzle", method = {RequestMethod.POST, RequestMethod.GET})
-    public String generatePuzzle(@Valid Configuration configuration, BindingResult bindingResult, RedirectAttributes redirectAttrs, Model model){
+    public String generatePuzzle(@Valid Configuration configuration, BindingResult bindingResult, RedirectAttributes redirectAttrs, Model model) throws Exception {
         if(bindingResult.hasErrors()) {
-            redirectAttrs.addFlashAttribute("configuration", configuration);
+            redirectAttrs.addFlashAttribute("loginFailed", configuration);
             redirectAttrs.addFlashAttribute("bindingResult", bindingResult);
             return "redirect:/";
         }
